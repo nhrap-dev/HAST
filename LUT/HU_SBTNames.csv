@@ -1,0 +1,40 @@
+﻿sbtName,gbtName,sbtDescription,gbtDescription,SbtID
+CECBH,CONCRETE,"Concrete Eng Com Bldgs, 6 or More Stories                                                           ",Concrete                                                                                            ,25
+CECBL,CONCRETE,"Concrete Eng Com Bldgs, 1-2 Stories                                                                 ",Concrete                                                                                            ,23
+CECBM,CONCRETE,"Concrete Eng Com Bldgs, 3-5 Stories                                                                 ",Concrete                                                                                            ,24
+CERBH,CONCRETE,"Concrete Eng Res Bldgs, 6 or More Stories                                                           ",Concrete                                                                                            ,22
+CERBL,CONCRETE,"Concrete Eng Res Bldgs, 1-2 Stories                                                                 ",Concrete                                                                                            ,20
+CERBM,CONCRETE,"Concrete Eng Red Bldgs, 3-5 Stories                                                                 ",Concrete                                                                                            ,21
+MECBH,MASONRY,"Masonry Eng Com Bldgs, 6 or More Stories                                                            ",Masonry                                                                                             ,19
+MECBL,MASONRY,"Masonry Eng Com Bldgs, 1-2 Stories                                                                  ",Masonry                                                                                             ,17
+MECBM,MASONRY,"Masonry Eng Com Bldgs, 3-5 Stories                                                                  ",Masonry                                                                                             ,18
+MERBH,MASONRY,"Masonry Eng Res Bldgs, 6 or More Stories                                                            ",Masonry                                                                                             ,16
+MERBL,MASONRY,"Masonry Eng Res Bldgs, 1-2 Stories                                                                  ",Masonry                                                                                             ,14
+MERBM,MASONRY,"Masonry Eng Red Bldgs, 3-5 Stories                                                                  ",Masonry                                                                                             ,15
+MH76HUD,MH,"Manufactured Home, 1976-1994                                                                        ",Manufactured Homes                                                                                  ,36
+MH94HUDI,MH,"Manufactured Home, After 1994 Zone 1                                                                ",Manufactured Homes                                                                                  ,37
+MH94HUDII,MH,"Manufactured Home, After 1994 Zone 2                                                                ",Manufactured Homes                                                                                  ,38
+MH94HUDIII,MH,"Manufactured Home, After 1994 Zone 3                                                                ",Manufactured Homes                                                                                  ,39
+MHPHUD,MH,"Manufactured Home, Before 1976                                                                      ",Manufactured Homes                                                                                  ,35
+MLRI,MASONRY,"Low-Rise Mas Warehouse/Factory, 20ft high                                                           ",Masonry                                                                                             ,13
+MLRM1,MASONRY,"Low-Rise Mas Strip Mall, Up to 15ft high                                                            ",Masonry                                                                                             ,11
+MLRM2,MASONRY,"Low-Rise Mas Strip Mall, More than 15ft high                                                        ",Masonry                                                                                             ,12
+MMUH1,MASONRY,"Masonry Multi-Unit/Hotel/Motel, 1 Story                                                             ",Masonry                                                                                             ,8
+MMUH2,MASONRY,"Masonry Multi-Unit/Hotel/Motel, 2 Stories                                                           ",Masonry                                                                                             ,9
+MMUH3,MASONRY,"Masonry Multi-Unit/Hotel/Motel, 3 or More                                                           ",Masonry                                                                                             ,10
+MSF1,MASONRY,"Single Family Homes, 1 Story - Masonry                                                              ",Masonry                                                                                             ,6
+MSF2,MASONRY,"Single Family Homes, 2 or More Stories - Mas                                                        ",Masonry                                                                                             ,7
+SECBH,STEEL,"Steel Eng Com Bldgs, 6 or More Stories                                                              ",Steel                                                                                               ,34
+SECBL,STEEL,"Steel Eng Com Bldgs, 1-2 Stories                                                                    ",Steel                                                                                               ,32
+SECBM,STEEL,"Steel Eng Com Bldgs, 3-5 Stories                                                                    ",Steel                                                                                               ,33
+SERBH,STEEL,"Steel Eng Res Bldgs, 6 or More Stories                                                              ",Steel                                                                                               ,31
+SERBL,STEEL,"Steel Eng Res Bldgs, 1-2 Stories                                                                    ",Steel                                                                                               ,29
+SERBM,STEEL,"Steel Eng Red Bldgs, 3-5 Stories                                                                    ",Steel                                                                                               ,30
+SPMBL,STEEL,"Pre-Eng Metal Building, Large - Steel                                                               ",Steel                                                                                               ,28
+SPMBM,STEEL,"Pre-Eng Metal Building, Med - Steel                                                                 ",Steel                                                                                               ,27
+SPMBS,STEEL,"Pre-Eng Metal Building, Small - Steel                                                               ",Steel                                                                                               ,26
+WMUH1,WOOD,"Wood Multi-Unit/Hotel/Motel, 1 Story                                                                ",Wood,3
+WMUH2,WOOD,"Wood Multi-Unit/Hotel/Motel, 2 Stories                                                              ",Wood,4
+WMUH3,WOOD,"Wood Multi-Unit/Hotel/Motel, 3 or More                                                              ",Wood,5
+WSF1,WOOD,"Single Family Homes, 1 Story - Wood                                                                 ",Wood,1
+WSF2,WOOD,"Single Family Homes, 2 or More Stories - Wood                                                       ",Wood,2

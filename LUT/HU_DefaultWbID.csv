@@ -1,0 +1,40 @@
+﻿wbID,sbtName,charDescription,CaseID,nWindChar
+1,WSF1,"rsgabswrnorda6dstrapgdnodshtno                                                                      ",1,6
+161,WSF2,"rsgabswrnorda6dstrapgdnodshtno                                                                      ",1,6
+321,WMUH1,rsfltrcburrqgodrda6dstrapshtno,3,6
+345,WMUH2,rsfltrcburrqgodrda6dstrapshtno,3,6
+369,WMUH3,rsfltrcburrqgodrda6dstrapshtno,3,6
+393,MSF1,"rsgabswrnorda6dstrapgdnodshtnormfno                                                                 ",1,7
+713,MSF2,"rsgabswrnorda6dstrapgdnodshtnormfno                                                                 ",1,7
+1033,MMUH1,rsfltrcburrqgodrda6dstrapshtnormfno,3,7
+1081,MMUH2,rsfltrcburrqgodrda6dstrapshtnormfno,3,7
+1129,MMUH3,rsfltrcburrqgodrda6dstrapshtnormfno,3,7
+1177,MLRM1,rcburrda6drftrsstrapshtnowiddArmfno,3,7
+1273,MLRM2,rcburrda6drftrsstrapshtnowiddArmfno,3,6
+1433,MLRI,dqporshtnormfnord100,3,4
+1437,MERBL,rcburwalowshtnowiddArd100,3,5
+1461,MERBM,rcburwalowshtnowiddArd100,3,5
+1485,MERBH,rcburwalowshtnowiddArd100,3,5
+1509,MECBL,rcburwalowshtnowiddArd100,3,5
+1533,MECBM,rcburwalowshtnowiddArd100,3,5
+1557,MECBH,rcburwalowshtnowiddArd100,3,5
+1581,CERBL,rcburwalowshtnowiddA,3,4
+1605,CERBM,rcburwalowshtnowiddA,3,4
+1629,CERBH,rcburwalowshtnowiddA,3,4
+1653,CECBL,rcburwalowshtnowiddA,3,4
+1677,CECBM,rcburwalowshtnowiddA,3,4
+1701,CECBH,rcburwalowshtnowiddA,3,4
+1725,SPMBS,dqporshtnord100,3,3
+1727,SPMBM,dqporshtnord100,3,3
+1729,SPMBL,dqporshtnord100,3,3
+1731,SERBL,rcburwalowshtnowiddArd100,3,5
+1755,SERBM,rcburwalowshtnowiddArd100,3,5
+1779,SERBH,rcburwalowshtnowiddArd100,3,5
+1803,SECBL,rcburwalowshtnowiddArd100,3,5
+1827,SECBM,rcburwalowshtnowiddArd100,3,5
+1851,SECBH,rcburwalowshtnowiddArd100,3,5
+1875,MHPHUD,"shtnomtdno                    ",1,2
+1877,MH76HUD,"shtnomtdno                    ",1,2
+1879,MH94HUDI,"shtnomtdno                    ",1,2
+1881,MH94HUDII,"shtnomtdno                    ",1,2
+1883,MH94HUDIII,"shtnomtdno                    ",1,2

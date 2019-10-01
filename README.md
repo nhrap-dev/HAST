@@ -1,2 +1,2 @@
-# HUSAT
-Hurricane Structure Analysis Tool
+# HAST
+Hurricane Analysis Structure Tool

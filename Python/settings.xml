@@ -1,0 +1,57 @@
+<HASTSettings>
+    <GeneralSettings>
+        <InputFileTypes>*.csv</InputFileTypes>
+        <PeakGustFileTypes>*.shp,*.netCDF</PeakGustFileTypes>
+        <OutputPath>..\Output\</OutputPath>
+        <InputPath>..\Input\</InputPath>
+    </GeneralSettings>
+    <data>
+        <PreProcessingFields>
+            <Longitude inputFieldName="X" required="yes">longitude,long,LONGITUDE,X</Longitude>
+            <Latitude inputFieldName="Y" required="yes">latitude,lat,LATITUDE,Y</Latitude>
+            <SOID inputFieldName="OCCUPANCY" required="yes">SpecificOcc_ID,SOID,SO,SOccId,SOCCID,soccid,OCCUPANCY</SOID>
+            <BuildingArea inputFieldName="BUILDING_AREA" required="yes">BuildingArea,Building Area,Building_Area,Area,area,AREA,BUILDINGAREA,BUILDING_AREA</BuildingArea>
+            <BuildingValue inputFieldName="BUILDING_COST" required="yes">BuildingValue,Building Value,Building_Value,BuildingVal,BuildingCost,Cost,BUILDINGVALUE,BUILDING_COST,Building_Cost</BuildingValue>
+            <ContentValue inputFieldName="CONTENT_COST" required="yes">ContentValue,Content Value,Content_Value,ContentCost,ContentVal,CONTENTCOST,CONTENT_COST,Content_Cost</ContentValue>
+            <HUSBT inputFieldName="HUSBT" required="yes">HUSBT,husbt</HUSBT>
+            <CensusBlockID inputFieldName="CENSUSBLOCK" required="no">censusblockid, census block id,CBId,CB_ID,cb_id,Cb_Id</CensusBlockID>
+            <TerrainID inputFieldName="TERRAINID" required="no">terrainid,terrain id,TERRAINID,TerrainID,terrainId,t_Id,TID</TerrainID>
+            <WBID inputFieldName="WBID" required="no">wbid, wb id,WBID,Wb_Id,WB_ID</WBID>
+        </PreProcessingFields>
+        <AnalysisFields>
+            <Longitude inputFieldName="LONGITUDE" required="yes">longitude, LONGITUDE</Longitude>
+            <Latitude inputFieldName="LATITUDE" required="yes">latitude, LATITUDE</Latitude>
+            <SOID inputFieldName="OCCUPANCY" required="yes">SpecificOcc_ID,SOID,SO,SOccId,SOCCID,soccid,OCCUPANCY</SOID>
+            <BuildingArea inputFieldName="BUILDING_AREA" required="yes">BuildingArea,Building Area,Building_Area,Area,area,AREA,BUILDINGAREA,BUILDING_AREA</BuildingArea>
+            <BuildingValue inputFieldName="BUILDING_COST" required="yes">BuildingValue,Building Value,Building_Value,BuildingVal,BuildingCost,Cost,BUILDINGVALUE,BUILDING_COST,Building_Cost</BuildingValue>
+            <ContentValue inputFieldName="CONTENT_COST" required="yes">ContentValue,Content Value,Content_Value,ContentCost,ContentVal,CONTENTCOST,CONTENT_COST,Content_Cost</ContentValue>
+            <HUSBT inputFieldName="HUSBT" required="yes">HUSBT,husbt</HUSBT>
+            <TerrainID inputFieldName="TERRAINID" required="yes">terrainid,terrain id,TERRAINID,TerrainID,terrainId,t_Id,TID</TerrainID>
+            <WBID inputFieldName="WBID" required="yes">wbid, wb id,WBID,Wb_Id,WB_ID,WBID_RIGHT</WBID>
+			<PeakGusts inputFieldName="" required="no">Peakgusts,PeakGusts,PeakGust,Peakgust,PEAKGUSTS,3SEC,3secpeakgusts</PeakGusts>
+        </AnalysisFields>
+        <LookupTables>
+            <LUTPath>..\LUT</LUTPath>
+            <SurfaceRoughNess>\HI\HI_HuCB_SurfaceRoughness.csv</SurfaceRoughNess>
+            <TerrainIDFName>\HU_TerrainId_Dist.csv</TerrainIDFName>
+            <WbIdFName>\HU_DefaultWbID.csv</WbIdFName>
+            <PWindField>..\WindField\Probabilistic</PWindField>
+            <SOPct>\SO_PctDist.csv</SOPct>
+            <HUStates>\HU_States.csv</HUStates>
+            <CBGeoJson>\HI\hzCensusblock_TIGER.geojson</CBGeoJson>
+            <HUDamageFunctions>\HU_DamageFunctions.csv</HUDamageFunctions>
+			<PWindFieldFileName>\HI_PWS_Tract_7RP.csv</PWindFieldFileName>
+        </LookupTables>
+        <Logging>
+            <LogFileName>../Log/app.log</LogFileName>			
+            <Level>INFO</Level>
+        </Logging>
+    </data>
+    <currentrun>
+        <WindFieldDataFile>C:/_Hazus/June-Dec_2019/HAST_POC/HAST/WindField/Probabilistic/HI_PWS_Tract_7RP.csv</WindFieldDataFile>
+        <InputFileName>C:/_Hazus/June-Dec_2019/HAST/Input/HI_EF_Input.csv</InputFileName>
+        <InputFileFieldMap>{"Longitude*": "X", "Latitude*": "Y", "SOID*": "OCCUPANCY", "BuildingArea*": "BUILDING_AREA", "BuildingValue*": "BUILDING_COST", "ContentValue*": "CONTENT_COST", "HUSBT*": "HUSBT", "CensusBlockID": "", "TerrainID": "", "WBID": ""}</InputFileFieldMap>
+        <PreProcessedDataFileName>C:/_Hazus/June-Dec_2019/HAST/Input/HI_EF_Input_pre_processed.csv</PreProcessedDataFileName>
+        <stateID>HI</stateID>
+    </currentrun>
+</HASTSettings>

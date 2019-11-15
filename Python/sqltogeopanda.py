@@ -58,7 +58,8 @@ def rd_sql(server, database, table, col_names=None, where_col=None, where_val=No
     
 def main():
     print("Hello SQL!")
-    rd_sql('DESKTOP-QKR1K2P\HAZUSPLUSSRVR','HI','hzCensusblock_TIGER')
+    #rd_sql('DESKTOP-QKR1K2P\HAZUSPLUSSRVR','HI','hzCensusblock_TIGER')
+    rd_sql('DESKTOP-QKR1K2P\HAZUSPLUSSRVR','VI','hzCensusblock_TIGER')
 
 if __name__ == "__main__":
     main()    

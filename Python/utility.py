@@ -6,7 +6,7 @@ except ImportError:
     from tkinter import filedialog
 
 try:
-    import ttk
+    import tkinter.ttk
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
@@ -14,12 +14,15 @@ except ImportError:
 
 import csv, os, datetime
 import xml.etree.ElementTree as ET
+# from tkinter import PhotoImage
 
 def popupmsg(msg, comm=None):
     global popup
     popup = tk.Toplevel()
     popup.configure(background="#bde6ff")
-    popup.iconbitmap('../Images/Hu_Symbol.ico')
+
+    popup.iconbitmap(os.path.abspath('Images/Hu_Symbol.ico'))
+    # popup.iconbitmap('../Images/Hu_Symbol.ico')
     popup.wm_title("HAST")
     label = tk.Label(popup, text=msg,background="#bde6ff")
     label.pack(fill="x", pady=10, padx = 20)

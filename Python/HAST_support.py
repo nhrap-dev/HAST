@@ -48,19 +48,19 @@ fields = {'Longitude*':'LongitudeEntry',
     'NumberOfStories':'NumberOfStoriesEntry',
     }
 
-try:
-    import Tkinter as tk
-    from Tkinter import filedialog
-except ImportError:
-    import tkinter as tk
-    from tkinter import filedialog
+# try:
+#     import Tkinter as tk
+#     from Tkinter import filedialog
+# except ImportError:
+import tkinter as tk
+from tkinter import filedialog
 
-try:
-    import ttk
-    py3 = False
-except ImportError:
-    import tkinter.ttk as ttk
-    py3 = True
+# try:
+#     import tkinter.ttk
+#     py3 = False
+# except ImportError:
+import tkinter.ttk as ttk
+py3 = True
     
 def checkform(button,fields):# Check validity of form entries
     ents = fields

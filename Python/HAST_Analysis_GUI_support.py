@@ -13,7 +13,8 @@ import utility
 from functools import reduce
 #import HAST_GUI as hgui
 #XML setup
-tree = ET.parse('settings.xml')
+# tree = ET.parse('settings.xml')
+tree = ET.parse(os.path.abspath('Python/settings.xml'))
 base = tree.getroot()
 """
 for node in tree.find('.//currentrun'):
@@ -25,7 +26,7 @@ LogFileName = tree.find('.//LogFileName').text
 Level = tree.find('.//Level').text
 #LogFileName = next(next(next(base.iter('data')).iter('Logging')).iter('LogFileName')).text
 #Level = next(next(next(base.iter('data')).iter('Logging')).iter('Level')).text
-if Level == 'INFO': logging.basicConfig(filename=LogFileName, filemode='w', level=logging.INFO)
+if Level == 'INFO': logging.basicConfig(filename=os.path.abspath('Log/' + LogFileName), filemode='w', level=logging.INFO)
 else: logging.basicConfig(filename=LogFileName, filemode='w', level=logging.DEBUG)
 logging.info(str(datetime.datetime.now())+' Logging level set to: '+ str(Level))
 
@@ -44,10 +45,10 @@ logging.debug(str(datetime.datetime.now())+' Field Types: ' + str(file_types))
 
 try:
     import Tkinter as tk
-    from Tkinter import filedialog
+    # from Tkinter import filedialog
 except ImportError:
     import tkinter as tk
-    from tkinter import filedialog
+    # from tkinter import filedialog
 
 try:
     import ttk
@@ -56,7 +57,11 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+from tkinter import *
 
+InputText = None
+SelectVar = None
+WindFieldText = None
 def set_Tk_var():
     global InputText
     InputText = tk.StringVar()
@@ -153,13 +158,20 @@ def preCheck():
     print('PRECHECK: ',root.preCheck)
     #if root.preCheck == 2: utility.popupmsg('Terrain Id and Web Id have NOT been found in your input file.\n Would you like to go to pre-processing instead?',startPreProcess)
     #root.after(100,preCheck)
-
+w = None
+top_level = None
+root = None
+fields = None
+_img0 = None
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
     w = gui
     top_level = top
     root = top
-    root.iconbitmap('../Images/Hu_Symbol.ico')
+    # Modified due to relative path issues - UKS 04/02/2020
+    # root.iconbitmap('../Images/Hu_Symbol.ico')
+    root.iconbitmap(os.path.abspath('Images/Hu_Symbol.ico'))
+
     root.csvFields = []# Input csv file fields
     global fields
     fields = {'Longitude*':w.LongitudeEntry,\
@@ -191,7 +203,9 @@ def init(top, gui, *args, **kwargs):
     root.geometry("+{}+{}".format(positionRight, positionDown))
     
     root.after(100, checkform)
-    photo_location = os.path.join(os.getcwd(),'..\images',"FileOpen_small.jpg")
+    # photo_location = os.path.join(os.getcwd(),'..\images',"FileOpen_small.jpg")
+    photo_location = os.path.abspath('Images/FileOpen_small.jpg')
+
     global _img0
     _img0 = ImageTk.PhotoImage(file=photo_location)
     w.SelectInput.configure(image=_img0)

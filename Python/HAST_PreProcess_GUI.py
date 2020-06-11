@@ -5,12 +5,14 @@
 #  in conjunction with Tcl version 8.6
 #    Oct 28, 2019 04:52:39 PM PDT  platform: Windows NT
 
-import sys
+import sys,utility
 
 try:
     import Tkinter as tk
+#     from Tkinter import filedialog
 except ImportError:
     import tkinter as tk
+#     from Tkinter import filedialog
 
 try:
     import ttk
@@ -19,18 +21,26 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+from tkinter import *
 import HAST_PreProcess_GUI_support
 
+val = None
+root = None
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
+    # utility.popupmsg('1')
     HAST_PreProcess_GUI_support.set_Tk_var()
+    # utility.popupmsg('2')
     top = Toplevel1 (root)
+    # utility.popupmsg('1')
     HAST_PreProcess_GUI_support.init(root, top)
     root.mainloop()
 
 w = None
+w_win = None
+rt = None
 def create_Toplevel1(root, *args, **kwargs):
     '''Starting point when module is imported by another program.'''
     global w, w_win, rt
@@ -75,8 +85,7 @@ class Toplevel1:
         self.SelectInput.configure(pady="0")
 
         self.RequiredFields = tk.LabelFrame(top)
-        self.RequiredFields.place(relx=0.0, rely=0.016, relheight=0.727
-                , relwidth=0.479)
+        self.RequiredFields.place(relx=0.0, rely=0.016, relheight=0.727, relwidth=0.479)
         self.RequiredFields.configure(relief='groove')
         self.RequiredFields.configure(foreground="black")
         self.RequiredFields.configure(text='''Required Input Fields''')
@@ -85,8 +94,7 @@ class Toplevel1:
         self.RequiredFields.configure(highlightcolor="black")
 
         self.Longitude = tk.Label(self.RequiredFields)
-        self.Longitude.place(relx=0.029, rely=0.067, height=26, width=82
-                , bordermode='ignore')
+        self.Longitude.place(relx=0.029, rely=0.067, height=26, width=82, bordermode='ignore')
         self.Longitude.configure(activebackground="#f9f9f9")
         self.Longitude.configure(activeforeground="black")
         self.Longitude.configure(anchor='w')
@@ -98,8 +106,7 @@ class Toplevel1:
         self.Longitude.configure(text='''Longitude*:''')
 
         self.LongitudeEntry = tk.Entry(self.RequiredFields)
-        self.LongitudeEntry.place(relx=0.706, rely=0.067, height=24
-                , relwidth=0.276, bordermode='ignore')
+        self.LongitudeEntry.place(relx=0.706, rely=0.067, height=24, relwidth=0.276, bordermode='ignore')
         self.LongitudeEntry.configure(background="white")
         self.LongitudeEntry.configure(disabledforeground="#a3a3a3")
         self.LongitudeEntry.configure(font="TkFixedFont")
@@ -111,8 +118,7 @@ class Toplevel1:
         self.LongitudeEntry.configure(selectforeground="black")
 
         self.Latitude = tk.Label(self.RequiredFields)
-        self.Latitude.place(relx=0.029, rely=0.135, height=26, width=66
-                , bordermode='ignore')
+        self.Latitude.place(relx=0.029, rely=0.135, height=26, width=66, bordermode='ignore')
         self.Latitude.configure(activebackground="#f9f9f9")
         self.Latitude.configure(activeforeground="black")
         self.Latitude.configure(anchor='w')
@@ -124,8 +130,7 @@ class Toplevel1:
         self.Latitude.configure(text='''Latitude*:''')
 
         self.LatitudeEntry = tk.Entry(self.RequiredFields)
-        self.LatitudeEntry.place(relx=0.706, rely=0.135, height=24
-                , relwidth=0.276, bordermode='ignore')
+        self.LatitudeEntry.place(relx=0.706, rely=0.135, height=24, relwidth=0.276, bordermode='ignore')
         self.LatitudeEntry.configure(background="white")
         self.LatitudeEntry.configure(disabledforeground="#a3a3a3")
         self.LatitudeEntry.configure(font="TkFixedFont")
@@ -137,8 +142,7 @@ class Toplevel1:
         self.LatitudeEntry.configure(selectforeground="black")
 
         self.SOID = tk.Label(self.RequiredFields)
-        self.SOID.place(relx=0.029, rely=0.202, height=26, width=166
-                , bordermode='ignore')
+        self.SOID.place(relx=0.029, rely=0.202, height=26, width=166, bordermode='ignore')
         self.SOID.configure(activebackground="#f9f9f9")
         self.SOID.configure(activeforeground="black")
         self.SOID.configure(anchor='w')
@@ -150,8 +154,7 @@ class Toplevel1:
         self.SOID.configure(text='''Specific Occupancy Id*:''')
 
         self.BuildingArea = tk.Label(self.RequiredFields)
-        self.BuildingArea.place(relx=0.029, rely=0.27, height=26, width=106
-                , bordermode='ignore')
+        self.BuildingArea.place(relx=0.029, rely=0.27, height=26, width=106, bordermode='ignore')
         self.BuildingArea.configure(activebackground="#f9f9f9")
         self.BuildingArea.configure(activeforeground="black")
         self.BuildingArea.configure(anchor='w')
@@ -163,8 +166,7 @@ class Toplevel1:
         self.BuildingArea.configure(text='''Building Area*:''')
 
         self.BuildingValue = tk.Label(self.RequiredFields)
-        self.BuildingValue.place(relx=0.029, rely=0.337, height=26, width=116
-                , bordermode='ignore')
+        self.BuildingValue.place(relx=0.029, rely=0.337, height=26, width=116, bordermode='ignore')
         self.BuildingValue.configure(activebackground="#f9f9f9")
         self.BuildingValue.configure(activeforeground="black")
         self.BuildingValue.configure(anchor='w')
@@ -176,8 +178,7 @@ class Toplevel1:
         self.BuildingValue.configure(text='''Building Value*:''')
 
         self.HUSBT = tk.Label(self.RequiredFields)
-        self.HUSBT.place(relx=0.029, rely=0.472, height=26, width=226
-                , bordermode='ignore')
+        self.HUSBT.place(relx=0.029, rely=0.472, height=26, width=226, bordermode='ignore')
         self.HUSBT.configure(activebackground="#f9f9f9")
         self.HUSBT.configure(activeforeground="black")
         self.HUSBT.configure(anchor='w')
@@ -189,8 +190,7 @@ class Toplevel1:
         self.HUSBT.configure(text='''Hurricane Specific Building Type*:''')
 
         self.BuildingAreaEntry = tk.Entry(self.RequiredFields)
-        self.BuildingAreaEntry.place(relx=0.706, rely=0.27, height=24
-                , relwidth=0.276, bordermode='ignore')
+        self.BuildingAreaEntry.place(relx=0.706, rely=0.27, height=24, relwidth=0.276, bordermode='ignore')
         self.BuildingAreaEntry.configure(background="white")
         self.BuildingAreaEntry.configure(disabledforeground="#a3a3a3")
         self.BuildingAreaEntry.configure(font="TkFixedFont")
@@ -202,8 +202,7 @@ class Toplevel1:
         self.BuildingAreaEntry.configure(selectforeground="black")
 
         self.BuildingValueEntry = tk.Entry(self.RequiredFields)
-        self.BuildingValueEntry.place(relx=0.706, rely=0.337, height=24
-                , relwidth=0.276, bordermode='ignore')
+        self.BuildingValueEntry.place(relx=0.706, rely=0.337, height=24, relwidth=0.276, bordermode='ignore')
         self.BuildingValueEntry.configure(background="white")
         self.BuildingValueEntry.configure(disabledforeground="#a3a3a3")
         self.BuildingValueEntry.configure(font="TkFixedFont")
@@ -215,8 +214,7 @@ class Toplevel1:
         self.BuildingValueEntry.configure(selectforeground="black")
 
         self.HUSBTEntry = tk.Entry(self.RequiredFields)
-        self.HUSBTEntry.place(relx=0.706, rely=0.472, height=24, relwidth=0.276
-                , bordermode='ignore')
+        self.HUSBTEntry.place(relx=0.706, rely=0.472, height=24, relwidth=0.276, bordermode='ignore')
         self.HUSBTEntry.configure(background="white")
         self.HUSBTEntry.configure(disabledforeground="#a3a3a3")
         self.HUSBTEntry.configure(font="TkFixedFont")
@@ -228,8 +226,7 @@ class Toplevel1:
         self.HUSBTEntry.configure(selectforeground="black")
 
         self.SOIDEntry = tk.Entry(self.RequiredFields)
-        self.SOIDEntry.place(relx=0.706, rely=0.202, height=24, relwidth=0.276
-                , bordermode='ignore')
+        self.SOIDEntry.place(relx=0.706, rely=0.202, height=24, relwidth=0.276, bordermode='ignore')
         self.SOIDEntry.configure(background="white")
         self.SOIDEntry.configure(disabledforeground="#a3a3a3")
         self.SOIDEntry.configure(font="TkFixedFont")
@@ -241,8 +238,7 @@ class Toplevel1:
         self.SOIDEntry.configure(selectforeground="black")
 
         self.ContentValue = tk.Label(self.RequiredFields)
-        self.ContentValue.place(relx=0.029, rely=0.404, height=26, width=116
-                , bordermode='ignore')
+        self.ContentValue.place(relx=0.029, rely=0.404, height=26, width=116, bordermode='ignore')
         self.ContentValue.configure(activebackground="#f9f9f9")
         self.ContentValue.configure(activeforeground="black")
         self.ContentValue.configure(anchor='w')
@@ -254,8 +250,7 @@ class Toplevel1:
         self.ContentValue.configure(text='''Content Value*:''')
 
         self.ContentValueEntry = tk.Entry(self.RequiredFields)
-        self.ContentValueEntry.place(relx=0.706, rely=0.404, height=24
-                , relwidth=0.276, bordermode='ignore')
+        self.ContentValueEntry.place(relx=0.706, rely=0.404, height=24, relwidth=0.276, bordermode='ignore')
         self.ContentValueEntry.configure(background="white")
         self.ContentValueEntry.configure(disabledforeground="#a3a3a3")
         self.ContentValueEntry.configure(font="TkFixedFont")
@@ -267,8 +262,7 @@ class Toplevel1:
         self.ContentValueEntry.configure(selectforeground="black")
 
         self.OptionalFields = tk.LabelFrame(top)
-        self.OptionalFields.place(relx=0.479, rely=0.016, relheight=0.727
-                , relwidth=0.515)
+        self.OptionalFields.place(relx=0.479, rely=0.016, relheight=0.727, relwidth=0.515)
         self.OptionalFields.configure(relief='groove')
         self.OptionalFields.configure(foreground="black")
         self.OptionalFields.configure(text='''Optional Fields''')
@@ -277,8 +271,7 @@ class Toplevel1:
         self.OptionalFields.configure(highlightcolor="black")
 
         self.TerrainID = tk.Label(self.OptionalFields)
-        self.TerrainID.place(relx=0.027, rely=0.135, height=26, width=136
-                , bordermode='ignore')
+        self.TerrainID.place(relx=0.027, rely=0.135, height=26, width=136, bordermode='ignore')
         self.TerrainID.configure(activebackground="#f9f9f9")
         self.TerrainID.configure(activeforeground="black")
         self.TerrainID.configure(anchor='w')
@@ -290,8 +283,7 @@ class Toplevel1:
         self.TerrainID.configure(text='''TerrainID:''')
 
         self.TerrainIDEntry = tk.Entry(self.OptionalFields)
-        self.TerrainIDEntry.place(relx=0.628, rely=0.135, height=24
-                , relwidth=0.257, bordermode='ignore')
+        self.TerrainIDEntry.place(relx=0.628, rely=0.135, height=24, relwidth=0.257, bordermode='ignore')
         self.TerrainIDEntry.configure(background="white")
         self.TerrainIDEntry.configure(disabledforeground="#a3a3a3")
         self.TerrainIDEntry.configure(font="TkFixedFont")
@@ -303,8 +295,7 @@ class Toplevel1:
         self.TerrainIDEntry.configure(selectforeground="black")
 
         self.WBIDEntry = tk.Entry(self.OptionalFields)
-        self.WBIDEntry.place(relx=0.628, rely=0.202, height=24, relwidth=0.257
-                , bordermode='ignore')
+        self.WBIDEntry.place(relx=0.628, rely=0.202, height=24, relwidth=0.257, bordermode='ignore')
         self.WBIDEntry.configure(background="white")
         self.WBIDEntry.configure(disabledforeground="#a3a3a3")
         self.WBIDEntry.configure(font="TkFixedFont")
@@ -316,8 +307,7 @@ class Toplevel1:
         self.WBIDEntry.configure(selectforeground="black")
 
         self.WBID = tk.Label(self.OptionalFields)
-        self.WBID.place(relx=0.027, rely=0.202, height=26, width=136
-                , bordermode='ignore')
+        self.WBID.place(relx=0.027, rely=0.202, height=26, width=136, bordermode='ignore')
         self.WBID.configure(activebackground="#f9f9f9")
         self.WBID.configure(activeforeground="black")
         self.WBID.configure(anchor='w')
@@ -329,21 +319,22 @@ class Toplevel1:
         self.WBID.configure(text='''wbID:''')
 
         self.CensusBlockIDLabel = tk.Label(self.OptionalFields)
-        self.CensusBlockIDLabel.place(relx=0.027, rely=0.067, height=26
-                , width=136, bordermode='ignore')
+        self.CensusBlockIDLabel.place(relx=0.027, rely=0.067, height=26, width=136, bordermode='ignore')
         self.CensusBlockIDLabel.configure(activebackground="#f9f9f9")
         self.CensusBlockIDLabel.configure(activeforeground="black")
         self.CensusBlockIDLabel.configure(anchor='w')
         self.CensusBlockIDLabel.configure(background="#87CEFA")
         self.CensusBlockIDLabel.configure(disabledforeground="#a3a3a3")
+        # self.CensusBlockIDLabel.configure(foreground="#000000")
+        # self.CensusBlockIDLabel.configure(highlightbackground="#d9d9d9")
+        # self.CensusBlockIDLabel.configure(highlightcolor="black")
         self.CensusBlockIDLabel.configure(foreground="#000000")
         self.CensusBlockIDLabel.configure(highlightbackground="#d9d9d9")
         self.CensusBlockIDLabel.configure(highlightcolor="black")
         self.CensusBlockIDLabel.configure(text='''Census Block Id:''')
 
         self.CensusBlockIDEntry = tk.Entry(self.OptionalFields)
-        self.CensusBlockIDEntry.place(relx=0.628, rely=0.067, height=24
-                , relwidth=0.257, bordermode='ignore')
+        self.CensusBlockIDEntry.place(relx=0.628, rely=0.067, height=24, relwidth=0.257, bordermode='ignore')
         self.CensusBlockIDEntry.configure(background="white")
         self.CensusBlockIDEntry.configure(disabledforeground="#a3a3a3")
         self.CensusBlockIDEntry.configure(font="TkFixedFont")
@@ -354,9 +345,19 @@ class Toplevel1:
         self.CensusBlockIDEntry.configure(selectbackground="#c4c4c4")
         self.CensusBlockIDEntry.configure(selectforeground="black")
 
+        self.TopoSpeedUpChkbx = tk.Checkbutton(self.OptionalFields)
+        self.TopoSpeedUpChkbx.place(relx=0.027, rely=0.27, height=26, width=50, bordermode='ignore')
+        self.TopoSpeedUpChkbx.configure(activebackground="#f9f9f9")
+        self.TopoSpeedUpChkbx.configure(activeforeground="black")
+        self.TopoSpeedUpChkbx.configure(anchor='w')
+        self.TopoSpeedUpChkbx.configure(background="#87CEFA")
+        self.TopoSpeedUpChkbx.configure(disabledforeground="#a3a3a3")
+        self.TopoSpeedUpChkbx.configure(foreground="#70747f")
+        self.TopoSpeedUpChkbx.configure(highlightbackground="#d9d9d9")
+        self.TopoSpeedUpChkbx.configure(highlightcolor="black")
+
         self.TopoSpeedUp = tk.Label(self.OptionalFields)
-        self.TopoSpeedUp.place(relx=0.027, rely=0.27, height=26, width=105
-                , bordermode='ignore')
+        self.TopoSpeedUp.place(relx=0.087, rely=0.27, height=26, width=105, bordermode='ignore')
         self.TopoSpeedUp.configure(activebackground="#f9f9f9")
         self.TopoSpeedUp.configure(activeforeground="black")
         self.TopoSpeedUp.configure(anchor='w')
@@ -365,24 +366,34 @@ class Toplevel1:
         self.TopoSpeedUp.configure(foreground="#70747f")
         self.TopoSpeedUp.configure(highlightbackground="#d9d9d9")
         self.TopoSpeedUp.configure(highlightcolor="black")
-        self.TopoSpeedUp.configure(text='''Topo speedup:''')
+        self.TopoSpeedUp.configure(text='''Topo speedup''')
+        
+        self.RoofShapeChkbx = tk.Checkbutton(self.OptionalFields)
+        self.RoofShapeChkbx.place(relx=0.137, rely=0.404, height=26, width=165, bordermode='ignore')
+        self.RoofShapeChkbx.configure(activebackground="#f9f9f9")
+        self.RoofShapeChkbx.configure(activeforeground="black")        
+        self.RoofShapeChkbx.configure(anchor='w')
+        self.RoofShapeChkbx.configure(background="#87CEFA")
+        self.RoofShapeChkbx.configure(disabledforeground="#a3a3a3")
+        self.RoofShapeChkbx.configure(foreground="#70747f")
+        self.RoofShapeChkbx.configure(highlightbackground="#d9d9d9")
+        self.RoofShapeChkbx.configure(highlightcolor="black")
+        # self.RoofShapeChkbx.configure(text='''Roof Shape:''')
 
-        self.TopoSpeedUp_3 = tk.Label(self.OptionalFields)
-        self.TopoSpeedUp_3.place(relx=0.137, rely=0.404, height=26, width=165
-                , bordermode='ignore')
-        self.TopoSpeedUp_3.configure(activebackground="#f9f9f9")
-        self.TopoSpeedUp_3.configure(activeforeground="black")
-        self.TopoSpeedUp_3.configure(anchor='w')
-        self.TopoSpeedUp_3.configure(background="#87CEFA")
-        self.TopoSpeedUp_3.configure(disabledforeground="#a3a3a3")
-        self.TopoSpeedUp_3.configure(foreground="#70747f")
-        self.TopoSpeedUp_3.configure(highlightbackground="#d9d9d9")
-        self.TopoSpeedUp_3.configure(highlightcolor="black")
-        self.TopoSpeedUp_3.configure(text='''Roof Shape:''')
+        self.RoofShapelbl = tk.Label(self.OptionalFields)
+        self.RoofShapelbl.place(relx=0.197, rely=0.404, height=26, width=165, bordermode='ignore')
+        self.RoofShapelbl.configure(activebackground="#f9f9f9")
+        self.RoofShapelbl.configure(activeforeground="black")
+        self.RoofShapelbl.configure(anchor='w')
+        self.RoofShapelbl.configure(background="#87CEFA")
+        # self.RoofShapelbl.configure(disabledforeground="#a3a3a3")
+        self.RoofShapelbl.configure(foreground="#70747f")
+        self.RoofShapelbl.configure(highlightbackground="#d9d9d9")
+        self.RoofShapelbl.configure(highlightcolor="black")
+        self.RoofShapelbl.configure(text='''Roof Shape''')
 
         self.TopoSpeedUp_4 = tk.Label(self.OptionalFields)
-        self.TopoSpeedUp_4.place(relx=0.137, rely=0.472, height=26, width=165
-                , bordermode='ignore')
+        self.TopoSpeedUp_4.place(relx=0.137, rely=0.472, height=26, width=165, bordermode='ignore')
         self.TopoSpeedUp_4.configure(activebackground="#f9f9f9")
         self.TopoSpeedUp_4.configure(activeforeground="black")
         self.TopoSpeedUp_4.configure(anchor='w')
@@ -394,8 +405,7 @@ class Toplevel1:
         self.TopoSpeedUp_4.configure(text='''Sec. Water Resistance:''')
 
         self.Label4 = tk.Label(self.OptionalFields)
-        self.Label4.place(relx=0.027, rely=0.337, height=26, width=199
-                , bordermode='ignore')
+        self.Label4.place(relx=0.027, rely=0.337, height=26, width=199, bordermode='ignore')
         self.Label4.configure(activebackground="#f9f9f9")
         self.Label4.configure(activeforeground="black")
         self.Label4.configure(anchor='w')
@@ -407,8 +417,7 @@ class Toplevel1:
         self.Label4.configure(text='''Wind Building Characteristics''')
 
         self.Label5 = tk.Label(self.OptionalFields)
-        self.Label5.place(relx=0.137, rely=0.539, height=26, width=165
-                , bordermode='ignore')
+        self.Label5.place(relx=0.137, rely=0.539, height=26, width=165, bordermode='ignore')
         self.Label5.configure(activebackground="#f9f9f9")
         self.Label5.configure(activeforeground="black")
         self.Label5.configure(anchor='w')
@@ -420,8 +429,7 @@ class Toplevel1:
         self.Label5.configure(text='''Roof deck attachment:''')
 
         self.Label6 = tk.Label(self.OptionalFields)
-        self.Label6.place(relx=0.137, rely=0.607, height=26, width=165
-                , bordermode='ignore')
+        self.Label6.place(relx=0.137, rely=0.607, height=26, width=165, bordermode='ignore')
         self.Label6.configure(activebackground="#f9f9f9")
         self.Label6.configure(activeforeground="black")
         self.Label6.configure(anchor='w')
@@ -433,8 +441,7 @@ class Toplevel1:
         self.Label6.configure(text='''Roof to wall connection:''')
 
         self.Label7 = tk.Label(self.OptionalFields)
-        self.Label7.place(relx=0.027, rely=0.674, height=26, width=180
-                , bordermode='ignore')
+        self.Label7.place(relx=0.027, rely=0.674, height=26, width=180, bordermode='ignore')
         self.Label7.configure(activebackground="#f9f9f9")
         self.Label7.configure(activeforeground="black")
         self.Label7.configure(anchor='w')
@@ -446,8 +453,7 @@ class Toplevel1:
         self.Label7.configure(text='''Garage doors:''')
 
         self.Label8 = tk.Label(self.OptionalFields)
-        self.Label8.place(relx=0.027, rely=0.742, height=26, width=180
-                , bordermode='ignore')
+        self.Label8.place(relx=0.027, rely=0.742, height=26, width=180, bordermode='ignore')
         self.Label8.configure(activebackground="#f9f9f9")
         self.Label8.configure(activeforeground="black")
         self.Label8.configure(anchor='w')
@@ -459,8 +465,7 @@ class Toplevel1:
         self.Label8.configure(text='''Shutters:''')
 
         self.Label9 = tk.Label(self.OptionalFields)
-        self.Label9.place(relx=0.027, rely=0.809, height=26, width=180
-                , bordermode='ignore')
+        self.Label9.place(relx=0.027, rely=0.809, height=26, width=180, bordermode='ignore')
         self.Label9.configure(activebackground="#f9f9f9")
         self.Label9.configure(activeforeground="black")
         self.Label9.configure(anchor='w')
@@ -472,8 +477,7 @@ class Toplevel1:
         self.Label9.configure(text='''Reinforced Masonry:''')
 
         self.Label9_1 = tk.Label(self.OptionalFields)
-        self.Label9_1.place(relx=0.027, rely=0.876, height=26, width=180
-                , bordermode='ignore')
+        self.Label9_1.place(relx=0.027, rely=0.876, height=26, width=180, bordermode='ignore')
         self.Label9_1.configure(activebackground="#f9f9f9")
         self.Label9_1.configure(activeforeground="black")
         self.Label9_1.configure(anchor='w')

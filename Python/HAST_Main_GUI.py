@@ -19,8 +19,16 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+# from tkinter import *
+# import sys, webbrowser, os, utility
+from tkinter import font, PhotoImage
+
 import HAST_Main_GUI_support
 
+val = None
+root = None
+w_win = None
+rt = None
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -63,8 +71,7 @@ class Toplevel1:
         top.configure(highlightcolor="black")
 
         self.Message1 = tk.Message(top)
-        self.Message1.place(relx=0.026, rely=0.046, relheight=0.507
-                , relwidth=0.956)
+        self.Message1.place(relx=0.026, rely=0.046, relheight=0.507, relwidth=0.956)
         self.Message1.configure(anchor='nw')
         self.Message1.configure(background="#97CFFC")
         self.Message1.configure(foreground="#000000")
@@ -75,8 +82,7 @@ This wizard will help you pre-process the data required for the HU loss analyses
         self.Message1.configure(width=366)
 
         self.AnalysisButton = tk.Radiobutton(top)
-        self.AnalysisButton.place(relx=0.052, rely=0.645, relheight=0.143
-                , relwidth=0.418)
+        self.AnalysisButton.place(relx=0.052, rely=0.645, relheight=0.143, relwidth=0.418)
         self.AnalysisButton.configure(activebackground="#ececec")
         self.AnalysisButton.configure(activeforeground="#000000")
         self.AnalysisButton.configure(anchor='nw')
@@ -91,8 +97,7 @@ This wizard will help you pre-process the data required for the HU loss analyses
         self.AnalysisButton.configure(variable=HAST_Main_GUI_support.selectedButton)
 
         self.PreProcessingButton = tk.Radiobutton(top)
-        self.PreProcessingButton.place(relx=0.052, rely=0.507, relheight=0.143
-                , relwidth=0.418)
+        self.PreProcessingButton.place(relx=0.052, rely=0.507, relheight=0.143, relwidth=0.418)
         self.PreProcessingButton.configure(activebackground="#ececec")
         self.PreProcessingButton.configure(activeforeground="#000000")
         self.PreProcessingButton.configure(anchor='nw')

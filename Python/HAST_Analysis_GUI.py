@@ -19,8 +19,11 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+from tkinter import *
 import HAST_Analysis_GUI_support
 
+val = None
+root = None
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -31,6 +34,8 @@ def vp_start_gui():
     root.mainloop()
 
 w = None
+w_win = None
+rt = None
 def create_Toplevel1(root, *args, **kwargs):
     '''Starting point when module is imported by another program.'''
     global w, w_win, rt

@@ -8,10 +8,11 @@
 
 try:
     import Tkinter as tk
-    from Tkinter import filedialog
+    # from Tkinter import filedialog
 except ImportError:
     import tkinter as tk
-    from tkinter import filedialog
+    # from Tkinter import filedialog
+
 
 try:
     import ttk
@@ -19,6 +20,9 @@ try:
 except ImportError:
     import tkinter.ttk as ttk
     py3 = True
+
+from tkinter import *
+
 from PIL import Image, ImageTk    
 import sys, os, csv, logging, fiona, json, utility
 import xml.etree.ElementTree as ET, datetime
@@ -26,7 +30,8 @@ import HAST_PreProcess as hpp
 from functools import reduce
 #import HAST_GUI as hgui
 #XML setup
-tree = ET.parse('settings.xml')
+# tree = ET.parse('settings.xml')
+tree = ET.parse(os.path.abspath('Python/settings.xml'))
 base = tree.getroot()
 """
 for node in tree.find('.//currentrun'):
@@ -41,7 +46,7 @@ LogFileName = tree.find('.//LogFileName').text
 Level = tree.find('.//Level').text
 #LogFileName = next(next(next(base.iter('data')).iter('Logging')).iter('LogFileName')).text
 #Level = next(next(next(base.iter('data')).iter('Logging')).iter('Level')).text
-if Level == 'INFO': logging.basicConfig(filename=LogFileName, filemode='w', level=logging.INFO)
+if Level == 'INFO': logging.basicConfig(filename=os.path.abspath('Log/' + LogFileName), filemode='w', level=logging.INFO)
 else: logging.basicConfig(filename=LogFileName, filemode='w', level=logging.DEBUG)
 logging.info(str(datetime.datetime.now()) +  ' Logging level set to: '+ str(Level))
 
@@ -55,7 +60,7 @@ file_types = [('Type '+item,item) for item in tree.find('.//InputFileTypes').tex
 
 logging.debug(str(datetime.datetime.now()) +  ' Field Types: ' + str(file_types))
 
-
+FileText = None
 def set_Tk_var():
     global FileText
     FileText = tk.StringVar()
@@ -134,6 +139,7 @@ def startMainScreen():
     
 def start_program():
     import HAST_PreProcess_GUI
+    # utility.popupmsg('Pre=-process start program')
     HAST_PreProcess_GUI.vp_start_gui()
 
 def startAnalysis():
@@ -145,13 +151,23 @@ def startAnalysis():
 def Analysis():
     utility.popupmsg('Are you sure you want to go to Analysis?', startAnalysis)
    
-    
+w = None
+top_level = None
+root = None
+_img0 = None
+fields = None
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
     w = gui
     top_level = top
     root = top
-    root.iconbitmap('../Images/Hu_Symbol.ico')
+    
+    # Modified due to relative path issues - UKS 03/24/2020
+    # root.iconbitmap('../Images/Hu_Symbol.ico')
+    root.iconbitmap(os.path.abspath('Images/Hu_Symbol.ico'))
+
+    # utility.popupmsg('After iconbitmap')
+
     root.csvFields = []# Input csv file fields
     global fields
     fields = {'Longitude*':w.LongitudeEntry,\
@@ -165,6 +181,8 @@ def init(top, gui, *args, **kwargs):
     'TerrainID':w.TerrainIDEntry,\
     'WBID':w.WBIDEntry}
     
+    # utility.popupmsg('After fieldmap')
+
     root.fields = {key:''for key, value in fields.items()}
     root.valid = {}
     root.preCheck = 0
@@ -183,7 +201,10 @@ def init(top, gui, *args, **kwargs):
     
     
     root.after(100, checkform)
-    photo_location = os.path.join(os.getcwd(),'..\images',"FileOpen_small.jpg")
+    # photo_location = os.path.join(os.getcwd(),'..\images',"FileOpen_small.jpg")
+    photo_location = os.path.abspath('Images/FileOpen_small.jpg')
+    # photo_location = os.path.abspath('Images/FileOpen_small.jpg')
+    # utility.popupmsg('After photo_location')
     global _img0
     _img0 = ImageTk.PhotoImage(file=photo_location)
     w.SelectInput.configure(image=_img0)

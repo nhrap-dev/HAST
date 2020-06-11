@@ -5,9 +5,6 @@
 #  in conjunction with Tcl version 8.6
 #    Sep 30, 2019 05:38:55 PM PDT  platform: Windows NT
 
-import sys, webbrowser, os
-from tkinter import font
-
 try:
     import Tkinter as tk
 except ImportError:
@@ -20,6 +17,13 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+from tkinter import *
+import sys, webbrowser, os, utility
+from tkinter import font, PhotoImage
+
+
+import Python.HAST_Main_GUI as HMGUI
+selectedButton = None
 def set_Tk_var():
     global selectedButton
     selectedButton = tk.StringVar()
@@ -30,23 +34,37 @@ def destroy_window():
     sys.stdout.flush()
 
 def run():
-    try: import HAST_PreProcess_GUI_support
+    try: import HAST_PreProcess_GUI_support #as HPGS
     except: pass
-    try: import HAST_Analysis_GUI_support
+    try: import HAST_Analysis_GUI_support #as HAGS
     except: pass
-    if selectedButton.get() != '':
-        destroy_window()
-        if selectedButton.get() == '2': HAST_PreProcess_GUI_support.start_program()
-        elif selectedButton.get() == '1': HAST_Analysis_GUI_support.start_program()
-        sys.stdout.flush()
+    try:
+        # utility.popupmsg(HMGUI.selectedButton.get().text())
+        if selectedButton.get()!= '':
+            # utility.popupmsg('inside if')            
+            destroy_window()
+            import HAST_PreProcess_GUI_support
+            import HAST_Analysis_GUI_support
+            if selectedButton.get() == '2': HAST_PreProcess_GUI_support.start_program()
+            elif selectedButton.get() == '1': HAST_Analysis_GUI_support.start_program()
+            sys.stdout.flush()
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
+        # utility.popupmsg('ERROR')
+        raise
 
-
+w = None
+root = None
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
     w = gui
     top_level = top
     root = top
-    root.iconbitmap('../Images/Hu_Symbol.ico')
+
+    # Modified due to relative path issues - UKS 03/24/2020
+    # root.iconbitmap('../Images/Hu_Symbol.ico')
+    root.iconbitmap(os.path.abspath('Images/Hu_Symbol.ico'))
+
     f = font.Font(w.SeeReadMe, w.SeeReadMe.cget("font"))
     f.configure(underline=True)
     w.SeeReadMe.configure(font=f)
@@ -64,7 +82,8 @@ def init(top, gui, *args, **kwargs):
      
     # Positions the window in the center of the page.
     root.geometry("+{}+{}".format(positionRight, positionDown))
-    
+
+top_level = None    
 def destroy_window():
     # Function which closes the window.
     global top_level
@@ -72,12 +91,12 @@ def destroy_window():
     top_level = None
     
 def start_program():
-    import HAST_Main_GUI
-    HAST_Main_GUI.vp_start_gui()
+    # import Python.HAST_Main_GUI as HMGUI
+    HMGUI.vp_start_gui()
     
 if __name__ == '__main__':
-    import HAST_Main_GUI
-    HAST_Main_GUI.vp_start_gui()
+    # import Python.HAST_Main_GUI as HMGUI
+    HMGUI.vp_start_gui()
 
 
 

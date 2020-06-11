@@ -1,0 +1,1 @@
+start /min python hast_main_gui.py
